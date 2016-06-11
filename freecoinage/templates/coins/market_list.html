@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load static %}{% load i18n %}
+{% block title %}Markets{% endblock %}
+
+{% block content %}
+
+<div class="container">
+
+    <h2>Markets</h2>
+
+    <div class="list-group">
+
+        {% for market in market_list %}
+          <a href="{% url 'markets:marketDetail' market.slug %}" class="list-group-item">
+            <h4 class="list-group-item-heading">{{ market }}</h4>
+          </a>
+        {% endfor %}
+
+    </div>
+
+</div>
+
+{% endblock content %}

@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load static %}{% load i18n %}
+{% block title %}Exchanges{% endblock %}
+
+{% block content %}
+
+<div class="container">
+
+    <h2>Exchanges</h2>
+
+    <div class="list-group">
+
+        {% for exchange in exchange_list %}
+          <a href="{% url 'exchanges:exchangeDetail' exchange.slug %}" class="list-group-item">
+            <h4 class="list-group-item-heading">{{ exchange.name }} </h4>
+          </a>
+        {% endfor %}
+
+    </div>
+
+</div>
+
+{% endblock content %}

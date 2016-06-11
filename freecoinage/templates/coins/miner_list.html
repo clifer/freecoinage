@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load static %}{% load i18n %}
+{% block title %}Miner{% endblock %}
+
+{% block content %}
+
+<div class="container">
+
+    <h2>Miner</h2>
+
+    <div class="list-group">
+        {% for miner in miner_list %}
+          <a href="{% url 'coins:minerDetail' miner.slug|lower %}" class="list-group-item">
+            <h4 class="list-group-item-heading">{{ miner.name }} ( {{ miner.slug }} )</h4>
+          </a>
+        {% endfor %}
+
+    </div>
+
+</div>
+
+{% endblock content %}

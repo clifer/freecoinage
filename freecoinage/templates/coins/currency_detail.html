@@ -1,0 +1,97 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Currency: {{ object.name }}{% endblock %}
+
+{% block content %}
+<div class="container">
+
+  <div class="row">
+    <div class="col-sm-12">
+     <div class="box">
+     <div class="box-header">
+      {% if object.name %}
+        <p>{{ object.name }}</p>
+      {% endif %}
+     </div>
+
+     <div class="box-body">
+
+    <div class="col-sm-12">
+
+    <div class="col-sm-4">
+    <label>Details</label>
+
+    <div class="list-group">
+
+      {% for name, value in object.get_fields %}
+        {% if value %}
+        <div class="list-group-item">
+          {{ name }} => {{ value }}<br />
+        </div>
+        {% endif %}
+      {% endfor %}
+
+    </div>
+     </div>
+    <div class="col-sm-4">
+
+    <label>Markets</label>
+
+    <div class="list-group">
+        {% for market in currency.markets %}
+        <div class="list-group-item">
+             <a href="{% url 'markets:marketDetail' market.slug %}" >
+            {{ market }}
+            </a>
+            {% for exchange in market.exchanges %}
+             <a href="{% url 'exchanges:exchangeDetail' exchange.slug %}" >
+                {{ exchange }}
+            </a>
+            {% endfor %}
+        </div>
+        {% endfor %}
+
+    </div>
+     </div>
+    <div class="col-sm-4">
+
+    <label>Exchanges</label>
+
+    <div class="list-group">
+        {% for exchange in currency.exchanges %}
+        <div class="list-group-item">
+             <a href="{% url 'exchanges:exchangeDetail' exchange.slug %}" >
+            {{ exchange }}
+             </a>
+        </div>
+        {% endfor %}
+
+    </div>
+    </div>
+
+    </div>
+
+    </div>
+    </div>
+    </div>
+  </div>
+
+{% if object == request.user %}
+<!-- Action buttons -->
+<div class="row">
+
+  <div class="col-sm-12 ">
+    <a class="btn btn-primary" href="{% url 'users:update' %}">My Info</a>
+    <a class="btn btn-primary" href="{% url 'account_email' %}">E-Mail</a>
+    <!-- Your Stuff: Custom user template urls -->
+  </div>
+
+</div>
+<!-- End Action buttons -->
+{% endif %}
+
+
+</div>
+{% endblock content %}
+

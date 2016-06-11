@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load static %}{% load i18n %}
+{% block title %}Mining Pools{% endblock %}
+
+{% block content %}
+
+<div class="container">
+
+    <h2>Mining Pools</h2>
+
+    <div class="list-group">
+
+        {% for miningpool in miningpool_list %}
+          <a href="{% url 'miningpools:miningPoolDetail' miningpool.slug %}" class="list-group-item">
+            <h4 class="list-group-item-heading">{{ miningpool }}</h4>
+          </a>
+        {% endfor %}
+
+    </div>
+
+</div>
+
+{% endblock content %}

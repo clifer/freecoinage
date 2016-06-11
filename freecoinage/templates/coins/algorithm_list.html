@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% load static %}{% load i18n %}
+{% block title %}Algorithms{% endblock %}
+
+{% block content %}
+
+<div class="container">
+
+    <h2>Algorithms</h2>
+
+    <div class="list-group">
+{{ algorithm }}
+
+        {% for algorithm in algorithm_list %}
+          <a href="{% url 'coins:algorithmDetail' algorithm.slug|lower %}" class="list-group-item">
+            <h4 class="list-group-item-heading">{{ algorithm.name }} ( {{ algorithm.slug }} )</h4>
+          </a>
+        {% endfor %}
+
+    </div>
+
+</div>
+
+{% endblock content %}

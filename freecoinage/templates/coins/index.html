@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+
+
+             <div class="box">
+                <div class="box-header">
+                  <h3 class="box-title">All Crypto Coins</h3>
+                </div><!-- /.box-header -->
+                <div class="box-body no-padding">
+
+   {% for coin in coins %}
+      {{ coin.name }}
+      {{ coin.symbol }}
+   {% endfor %}
+
+                </div><!-- /.box-body -->
+                <div class="box-footer">
+                </div><!-- /.box-footer -->
+              </div><!-- /.box -->
+
+
+{% endblock %}
+
+

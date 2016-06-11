@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load static %}
+{% load i18n %}
+{% block title %}Coins{% endblock %}
+
+{% block content %}
+
+    <h2>Coins</h2>
+
+    <div class="list-group">
+
+    {% for coin in coin_list %}
+    <div class="list-group-item">
+          <a href="{% url 'coins:coinDetail' coin.slug %}" class="list-group-item">
+            <h4 class="list-group-item-heading">{{ coin.name }} ( {{ coin.symbol }} )</h4>
+          </a>
+    </div>
+    {% endfor %}
+
+
+{% endblock content %}
