@@ -20,6 +20,7 @@ urlpatterns = [
     url(r'^accounts/', include('allauth.urls')),
 
     # Your stuff: custom urls includes go here
+    url(r'^api/', include('freecoinage.api.urls')),
     url(r'^coins/', include('freecoinage.coins.urls', namespace='coins')),
     url(r'^exchanges/', include('freecoinage.coins.exchanges.urls', namespace='exchanges')),
     url(r'^markets/', include('freecoinage.coins.markets.urls', namespace='markets')),
