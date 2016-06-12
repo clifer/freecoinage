@@ -3,17 +3,17 @@ from __future__ import absolute_import, unicode_literals
 
 from django.conf.urls import url
 
-from freecoinage.coins import views
+from .views import *
 
 urlpatterns = [
    url(
         regex=r'^$',
-        view=views.minerListView.as_view(),
+        view=minerListView.as_view(),
         name='minerList'
     ),
     url(
         regex=r'^miners/(?P<slug>[\w|\W]+)$',
-        view=views.minerDetailView.as_view(),
+        view=minerDetailView.as_view(),
         name='minerDetail'
     ),
 ]
