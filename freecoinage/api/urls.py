@@ -4,12 +4,12 @@ urlpatterns = patterns(
     'api.views',
     url(
         regex=r'^markets/$',
-        'market_list',
+        view='market_list',
         name='market_list'
     ),
     url(
         regex=r'^markets/(?P<slug>[\w|\W]+)$',
-        'market_detail',
+        view='market_detail',
         name='market_detail',
     ),
 )
