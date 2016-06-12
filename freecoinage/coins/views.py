@@ -102,24 +102,24 @@ class miningPoolListView(LoginRequiredMixin, ListView):
     slug_field = 'slug'
     slug_url_kwarg = 'slug'
 
-class exchangeDetailView(LoginRequiredMixin, DetailView):
-    model = Exchange
-    # These next two lines tell the view to index lookups by slug
-    slug_field = 'slug'
-    slug_url_kwarg = 'slug'
-
-class exchangeRedirectView(LoginRequiredMixin, RedirectView):
-    permanent = False
-
-    def get_redirect_url(self):
-        return reverse('exchanges:exchangeDetail',
-                       kwargs={'slug': self.slug})
-
-class exchangeListView(LoginRequiredMixin, ListView):
-    model = Exchange
-    # These next two lines tell the view to index lookups by slug
-    slug_field = 'slug'
-    slug_url_kwarg = 'slug'
+#class exchangeDetailView(LoginRequiredMixin, DetailView):
+#    model = Exchange
+#    # These next two lines tell the view to index lookups by slug
+##    slug_field = 'slug'
+#    slug_url_kwarg = 'slug'
+#
+#class exchangeRedirectView(LoginRequiredMixin, RedirectView):
+#    permanent = False
+#
+#    def get_redirect_url(self):
+#        return reverse('exchanges:exchangeDetail',
+#                       kwargs={'slug': self.slug})
+#
+#class exchangeListView(LoginRequiredMixin, ListView):
+#    model = Exchange
+#    # These next two lines tell the view to index lookups by slug
+#    slug_field = 'slug'
+#    slug_url_kwarg = 'slug'
 
 
 class marketDetailView(LoginRequiredMixin, DetailView):
