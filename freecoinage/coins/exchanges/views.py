@@ -8,7 +8,7 @@ from django.shortcuts import render, render_to_response
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 from freecoinage.users.models import User
-from .models import Coin, Currency, Algorithm, Daemon, Market, Exchange, Miner, MiningPool
+from freecoinage.coins.models import Exchange
 
 
 class exchangeDetailView(LoginRequiredMixin, DetailView):
