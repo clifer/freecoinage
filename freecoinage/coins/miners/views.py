@@ -8,7 +8,7 @@ from django.shortcuts import render, render_to_response
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 from freecoinage.users.models import User
-from .models import Miner
+from freecoinage.coins.models import Miner
 
 
 class minerDetailView(LoginRequiredMixin, DetailView):
