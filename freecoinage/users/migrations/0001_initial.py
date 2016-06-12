@@ -9,6 +9,7 @@ import django.core.validators
 from django.db import migrations, models
 import django.db.models.deletion
 import django.utils.timezone
+from freecoinage.coins.models import Coin
 
 
 class Migration(migrations.Migration):
@@ -16,6 +17,7 @@ class Migration(migrations.Migration):
     initial = True
 
     dependencies = [
+        ('coins', '0001_initial'),
         ('auth', '0001_initial'),
     ]
 
@@ -57,31 +59,6 @@ class Migration(migrations.Migration):
             model_name='user',
             name='username',
             field=models.CharField(error_messages={'unique': 'A user with that username already exists.'}, help_text='Required. 30 characters or fewer. Letters, digits and @/./+/-/_ only.', max_length=30, unique=True, validators=[django.core.validators.RegexValidator('^[\\w.@+-]+$', 'Enter a valid username. This value may contain only letters, numbers and @/./+/-/_ characters.')], verbose_name='username'),
-        ),
-        migrations.CreateModel(
-            name='UserCoin',
-            fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('active', models.BooleanField(default=False)),
-                ('coin', models.ForeignKey(default='1', on_delete=django.db.models.deletion.CASCADE, related_name='UserCoins', to='coins.Coin')),
-                ('slug', autoslug.fields.AutoSlugField(always_update=True, default='1', editable=False, populate_from='coinid')),
-                ('user', models.ForeignKey(default='1', on_delete=django.db.models.deletion.CASCADE, related_name='UserUserCoins', to=settings.AUTH_USER_MODEL)),
-            ],
-        ),
-        migrations.AlterUniqueTogether(
-            name='usercoin',
-            unique_together=set([]),
-        ),
-        migrations.RemoveField(
-            model_name='usercoin',
-            name='coin',
-        ),
-        migrations.RemoveField(
-            model_name='usercoin',
-            name='user',
-        ),
-        migrations.DeleteModel(
-            name='UserCoin',
         ),
         migrations.CreateModel(
             name='UserCoin',

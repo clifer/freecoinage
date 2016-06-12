@@ -246,7 +246,7 @@ class MiningPool(models.Model):
         return [(field.name, field.value_to_string(self)) for field in MiningPool._meta.fields]
 
 class Market(models.Model):
-#    name = models.CharField(max_length=30,blank=False)
+    name = models.CharField(max_length=30,blank=False)
     coinid = models.ForeignKey(Coin)
     currencyid = models.ForeignKey(Currency)
     exchangeid = models.ForeignKey(Exchange)

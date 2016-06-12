@@ -13,7 +13,7 @@ class Migration(migrations.Migration):
     initial = True
 
     dependencies = [
-        migrations.swappable_dependency(settings.AUTH_USER_MODEL),
+#        migrations.swappable_dependency(settings.AUTH_USER_MODEL),
     ]
 
     operations = [
@@ -176,10 +176,6 @@ class Migration(migrations.Migration):
             field=autoslug.fields.AutoSlugField(always_update=True, default='x', editable=False, populate_from='name'),
             preserve_default=False,
         ),
-        migrations.RemoveField(
-            model_name='market',
-            name='name',
-        ),
         migrations.AlterUniqueTogether(
             name='market',
             unique_together=set([('coinid', 'currencyid', 'exchangeid')]),
@@ -206,30 +202,5 @@ class Migration(migrations.Migration):
             model_name='exchange',
             name='slug',
             field=autoslug.fields.AutoSlugField(always_update=True, editable=False, populate_from='name'),
-        ),
-        migrations.CreateModel(
-            name='UserCoin',
-            fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('active', models.BooleanField(default=False)),
-                ('slug', autoslug.fields.AutoSlugField(always_update=True, editable=False, populate_from='name')),
-                ('coin', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='UserCoins', to='coins.Coin')),
-                ('user', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='UserUserCoins', to=settings.AUTH_USER_MODEL)),
-            ],
-        ),
-        migrations.AlterUniqueTogether(
-            name='usercoin',
-            unique_together=set([]),
-        ),
-        migrations.RemoveField(
-            model_name='usercoin',
-            name='coin',
-        ),
-        migrations.RemoveField(
-            model_name='usercoin',
-            name='user',
-        ),
-        migrations.DeleteModel(
-            name='UserCoin',
         ),
     ]
