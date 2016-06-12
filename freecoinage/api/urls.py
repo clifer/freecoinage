@@ -5,7 +5,7 @@ urlpatterns = patterns(
     url(
         regex=r'^markets/$',
         'market_list',
-        name='market_list'm
+        name='market_list'
     ),
     url(
         regex=r'^markets/(?P<slug>[\w|\W]+)$',
