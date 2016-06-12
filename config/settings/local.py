@@ -69,6 +69,7 @@ CELERY_ALWAYS_EAGER = True
 
 # coins
 # ------------------------------------------------------------------------------
+INSTALLED_APPS += ('rest_framework',)
 INSTALLED_APPS += ('freecoinage.coins',)
 
 # Your local stuff: Below this line define 3rd party library settings

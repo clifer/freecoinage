@@ -124,7 +124,7 @@ class Exchange(models.Model):
     def getcurrencies(self):
         apiresults = None
         if self.active:
-            from .exchange import Exchange
+            from .exchanges.module import Exchange
             exchange = Exchange(self)
             apiresults = exchange.getcurrencies()
         return apiresults
@@ -132,7 +132,7 @@ class Exchange(models.Model):
     def getmarkets(self):
         apiresults = None
         if self.active:
-            from .exchange import Exchange
+            from .exchanges.module import Exchange
             thisexchange = Exchange(self)
             apiresults = thisexchange.getmarkets()
         return apiresults

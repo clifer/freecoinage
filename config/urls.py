@@ -21,7 +21,7 @@ urlpatterns = [
 
     # Your stuff: custom urls includes go here
     url(r'^coins/', include('freecoinage.coins.url.coin', namespace='coins')),
-    url(r'^exchanges/', include('freecoinage.coins.url.exchange', namespace='exchanges')),
+    url(r'^exchanges/', include('freecoinage.coins.exchanges.urls', namespace='exchanges')),
     url(r'^markets/', include('freecoinage.coins.url.market', namespace='markets')),
     url(r'^currencies/', include('freecoinage.coins.url.currency', namespace='currencies')),
     url(r'^miners/', include('freecoinage.coins.url.miner', namespace='miners')),
