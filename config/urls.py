@@ -20,13 +20,13 @@ urlpatterns = [
     url(r'^accounts/', include('allauth.urls')),
 
     # Your stuff: custom urls includes go here
-    url(r'^coins/', include('freecoinage.coins.url.coin', namespace='coins')),
+    url(r'^coins/', include('freecoinage.coins.urls', namespace='coins')),
     url(r'^exchanges/', include('freecoinage.coins.exchanges.urls', namespace='exchanges')),
-    url(r'^markets/', include('freecoinage.coins.url.market', namespace='markets')),
-    url(r'^currencies/', include('freecoinage.coins.url.currency', namespace='currencies')),
-    url(r'^miners/', include('freecoinage.coins.url.miner', namespace='miners')),
-    url(r'^miningpools/', include('freecoinage.coins.url.miningpool', namespace='miningpools')),
-    url(r'^algorithms/', include('freecoinage.coins.url.algorithm', namespace='algorithms')),
+    url(r'^markets/', include('freecoinage.coins.markets.urls', namespace='markets')),
+    url(r'^currencies/', include('freecoinage.coins.currencys.urls', namespace='currencies')),
+    url(r'^miners/', include('freecoinage.coins.miners.urls', namespace='miners')),
+    url(r'^miningpools/', include('freecoinage.coins.miningpools.urls', namespace='miningpools')),
+    url(r'^algorithms/', include('freecoinage.coins.algorithms.urls', namespace='algorithms')),
 
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
