@@ -1,7 +1,7 @@
 from django.conf.urls import patterns, url
 
 urlpatterns = patterns(
-    'api.views',
+    'freecoinage.api.views',
     url(
         regex=r'^markets/$',
         view='market_list',
