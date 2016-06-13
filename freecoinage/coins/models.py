@@ -153,7 +153,7 @@ class Exchange(models.Model):
         currencies = []
         for market in self.markets:
             currencies.append(market.currencyid)
-        return currencies
+        return set(currencies)
 
 
 
