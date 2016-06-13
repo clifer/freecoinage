@@ -17,7 +17,7 @@ def market_list(request):
         return Response(serializer.data)
 
     elif request.method == 'POST':
-        serializer = marketSerializer(data=request.DATA)
+        serializer = marketSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
@@ -41,7 +41,7 @@ def market_detail(request, pk):
         return Response(serializer.data)
 
     elif request.method == 'PUT':
-        serializer = marketSerializer(market, data=request.DATA)
+        serializer = marketSerializer(market, data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data)
