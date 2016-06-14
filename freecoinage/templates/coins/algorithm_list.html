@@ -12,7 +12,7 @@
 {{ algorithm }}
 
         {% for algorithm in algorithm_list %}
-          <a href="{% url 'coins:algorithmDetail' algorithm.slug|lower %}" class="list-group-item">
+          <a href="{% url 'algorithms:algorithmDetail' algorithm.slug|lower %}" class="list-group-item">
             <h4 class="list-group-item-heading">{{ algorithm.name }} ( {{ algorithm.slug }} )</h4>
           </a>
         {% endfor %}

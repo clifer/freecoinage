@@ -41,10 +41,11 @@ class Algorithm(models.Model):
         return coins
 
     def get_absolute_url(self):
-        return reverse('coins:algorithmDetail', kwargs={'slug': self.slug})
+        return reverse('algorithms:algorithmDetail', kwargs={'slug': self.slug})
 
     def get_fields(self):
         return [(field.name, field.value_to_string(self)) for field in Algorithm._meta.fields]
+
 
 class Coin(models.Model):
 
