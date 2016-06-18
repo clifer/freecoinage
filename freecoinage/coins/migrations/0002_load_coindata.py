@@ -35,7 +35,7 @@ def load_markets(apps, schema_editor):
 
 def load_minertypes(apps, schema_editor):
     MinerType = apps.get_model("coins", "MinerType")
-    thesminertype = Miner(id=1,name='Minera', description='description',slug='minera')
+    thesminertype = MinerType(id=1,name='Minera', description='description',slug='minera')
     thesminertype.save()
 
 def load_miners(apps, schema_editor):
