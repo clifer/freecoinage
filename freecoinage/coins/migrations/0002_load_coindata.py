@@ -67,8 +67,8 @@ class Migration(migrations.Migration):
         migrations.RunPython(load_coins),
         migrations.RunPython(load_exchanges),
         migrations.RunPython(load_markets),
-        migrations.RunPython(load_miners),
         migrations.RunPython(load_minertypes),
-        migrations.RunPython(load_miningpools),
         migrations.RunPython(load_miningpooltypes),
+        migrations.RunPython(load_miners),
+        migrations.RunPython(load_miningpools),
     ]
