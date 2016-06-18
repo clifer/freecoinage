@@ -194,7 +194,7 @@ class MinerType(models.Model):
         return self.name
 
     def get_absolute_url(self):
-        return reverse('minertypes:minerTypeDetail', kwargs={'slug': self.slug})
+        return reverse('miners:minerTypeDetail', kwargs={'slug': self.slug})
 
     def get_fields(self):
         return [(field.name, field.value_to_string(self)) for field in MinerType._meta.fields]
@@ -235,7 +235,7 @@ class MiningPoolType(models.Model):
         return self.name
 
     def get_absolute_url(self):
-        return reverse('miningpooltypes:miningPoolTypeDetail', kwargs={'slug': self.slug})
+        return reverse('miningpools:miningPoolTypeDetail', kwargs={'slug': self.slug})
 
     def get_fields(self):
         return [(field.name, field.value_to_string(self)) for field in MiningPoolType._meta.fields]
