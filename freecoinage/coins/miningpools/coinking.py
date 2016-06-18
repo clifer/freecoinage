@@ -1,6 +1,6 @@
 from django.conf import settings
 from freecoinage.coins.models import Daemon
-from freecounage.coins.util.apidatasource import FetchAPI
+from freecoinage.coins.util.apidatasource import FetchAPI
 
 
 def defaultapi(mp):

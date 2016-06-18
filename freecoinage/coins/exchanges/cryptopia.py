@@ -1,4 +1,4 @@
-from freecounage.coins.util.apidatasource import FetchAPI
+from freecoinage.coins.util.apidatasource import FetchAPI
 
 def getcurrencies(exchange):
 
