@@ -30,7 +30,7 @@ class minerListView(LoginRequiredMixin, ListView):
     slug_url_kwarg = 'slug'
 
 
-class minerTypeDetailView(LoginRequiredMixin, DetailView):
+class minerTypeDetailView(DetailView):
     model = MinerType
     # These next two lines tell the view to index lookups by slug
     slug_field = 'slug'
@@ -43,7 +43,7 @@ class minerTypeRedirectView(LoginRequiredMixin, RedirectView):
         return reverse('minertypes:minerTypeDetail',
                        kwargs={'slug': self.slug})
 
-class minerTypeListView(LoginRequiredMixin, ListView):
+class minerTypeListView(ListView):
     model = MinerType
     # These next two lines tell the view to index lookups by slug
     slug_field = 'slug'

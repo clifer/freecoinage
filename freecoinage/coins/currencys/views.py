@@ -8,7 +8,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from freecoinage.coins.models import  Currency
 
 
-class currencyDetailView(LoginRequiredMixin, DetailView):
+class currencyDetailView(DetailView):
     model = Currency
     # These next two lines tell the view to index lookups by slug
     slug_field = 'slug'
@@ -21,7 +21,7 @@ class currencyRedirectView(LoginRequiredMixin, RedirectView):
         return reverse('currencys:currencyDetail',
                        kwargs={'slug': self.slug})
 
-class currencyListView(LoginRequiredMixin, ListView):
+class currencyListView(ListView):
     model = Currency
     # These next two lines tell the view to index lookups by slug
     slug_field = 'slug'

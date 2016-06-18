@@ -30,7 +30,7 @@ class miningPoolListView(ListView):
     slug_url_kwarg = 'slug'
 
 
-class miningPoolTypeDetailView(LoginRequiredMixin, DetailView):
+class miningPoolTypeDetailView(DetailView):
     model = MiningPoolType
     # These next two lines tell the view to index lookups by slug
     slug_field = 'slug'
@@ -43,7 +43,7 @@ class miningPoolTypeRedirectView(LoginRequiredMixin, RedirectView):
         return reverse('miningpooltypes:miningPoolTypeDetail',
                        kwargs={'slug': self.slug})
 
-class miningPoolTypeListView(LoginRequiredMixin, ListView):
+class miningPoolTypeListView(ListView):
     model = MiningPoolType
     # These next two lines tell the view to index lookups by slug
     slug_field = 'slug'

@@ -13,7 +13,7 @@ from freecoinage.users.models import User
 from freecoinage.coins.models import Exchange
 
 
-class exchangeDetailView(LoginRequiredMixin, DetailView):
+class exchangeDetailView(DetailView):
     model = Exchange
     # These next two lines tell the view to index lookups by slug
     slug_field = 'slug'
@@ -26,7 +26,7 @@ class exchangeRedirectView(LoginRequiredMixin, RedirectView):
         return reverse('exchanges:exchangeDetail',
                        kwargs={'slug': self.slug})
 
-class exchangeListView(LoginRequiredMixin, ListView):
+class exchangeListView(ListView):
     model = Exchange
     # These next two lines tell the view to index lookups by slug
     slug_field = 'slug'

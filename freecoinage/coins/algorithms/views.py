@@ -11,7 +11,7 @@ from freecoinage.users.models import User
 from freecoinage.coins.models import Algorithm
 
 
-class algorithmDetailView(LoginRequiredMixin, DetailView):
+class algorithmDetailView(DetailView):
     model = Algorithm
     # These next two lines tell the view to index lookups by slug
     slug_field = 'slug'
@@ -24,7 +24,7 @@ class algorithmRedirectView(LoginRequiredMixin, RedirectView):
         return reverse('coins:algorithmDetail',
                        kwargs={'slug': self.slug})
 
-class algorithmListView(LoginRequiredMixin, ListView):
+class algorithmListView(ListView):
     model = Algorithm
     # These next two lines tell the view to index lookups by slug
     slug_field = 'slug'
