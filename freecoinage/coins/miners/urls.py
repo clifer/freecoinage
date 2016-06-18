@@ -18,8 +18,8 @@ urlpatterns = [
     ),
    url(
         regex=r'^minertypes/$',
-        view=minerListView.as_view(),
-        name='minerList'
+        view=minerTypeListView.as_view(),
+        name='minerTypeList'
     ),
     url(
         regex=r'^minertypes/(?P<slug>[\w|\W]+)$',
