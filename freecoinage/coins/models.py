@@ -228,7 +228,7 @@ class MiningPool(models.Model):
     port = models.CharField(max_length=30,null=True,blank=True)
     apiurl = models.CharField(max_length=256,null=True,blank=True)
     apikey = models.CharField(max_length=256,null=True,blank=True)
-    pooltype = models.CharField(max_length=256,null=True,blank=True)
+    pooltype = models.ForeignKey(MiningPoolType)
     active = models.BooleanField(default=False)
     slug = AutoSlugField(populate_from='name',always_update=True)
     slug_field = 'name'
