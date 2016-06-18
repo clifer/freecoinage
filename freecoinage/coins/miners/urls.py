@@ -16,6 +16,11 @@ urlpatterns = [
         view=minerDetailView.as_view(),
         name='minerDetail'
     ),
+   url(
+        regex=r'^minertypes/$',
+        view=minerListView.as_view(),
+        name='minerList'
+    ),
     url(
         regex=r'^minertypes/(?P<slug>[\w|\W]+)$',
         view=minerTypeDetailView.as_view(),
