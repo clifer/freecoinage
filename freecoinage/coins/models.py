@@ -207,6 +207,19 @@ class Miner(models.Model):
     def get_fields(self):
         return [(field.name, field.value_to_string(self)) for field in Miner._meta.fields]
 
+class MiningPoolType(models.Model):
+    name = models.CharField(max_length=30,blank=False)
+    description = models.CharField(max_length=1024,blank=True,null=True)
+    slug = AutoSlugField(populate_from='name',always_update=True)
+    slug_field = 'name'
+    slug_url_kwarg = 'name'
+
+    def get_absolute_url(self):
+        return reverse('coins:miningPoolDetail', kwargs={'slug': self.slug})
+
+    def get_fields(self):
+        return [(field.name, field.value_to_string(self)) for field in MiningPool._meta.fields]
+
 class MiningPool(models.Model):
     name = models.CharField(max_length=30,blank=False)
     description = models.CharField(max_length=1024,blank=True,null=True)
