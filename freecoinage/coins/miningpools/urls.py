@@ -17,7 +17,7 @@ urlpatterns = [
         name='miningPoolDetail'
     ),
    url(
-        regex=r'miningpooltypes/^$',
+        regex=r'miningpooltypes/$',
         view=miningPoolTypeListView.as_view(),
         name='miningPoolTypeList'
     ),
