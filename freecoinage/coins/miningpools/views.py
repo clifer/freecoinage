@@ -10,7 +10,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from freecoinage.users.models import User
 from freecoinage.coins.models import MiningPool,MiningPoolType
 
-class miningPoolDetailView(DetailView):
+class miningPoolDetailView(LoginRequiredMixin, DetailView):
     model = MiningPool
     # These next two lines tell the view to index lookups by slug
     slug_field = 'slug'
@@ -23,7 +23,7 @@ class miningPoolRedirectView(LoginRequiredMixin, RedirectView):
         return reverse('miningpool:miningPoolDetail',
                        kwargs={'slug': self.slug})
 
-class miningPoolListView(ListView):
+class miningPoolListView(LoginRequiredMixin, ListView):
     model = MiningPool
     # These next two lines tell the view to index lookups by slug
     slug_field = 'slug'
