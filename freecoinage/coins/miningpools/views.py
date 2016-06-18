@@ -20,7 +20,7 @@ class miningPoolRedirectView(LoginRequiredMixin, RedirectView):
     permanent = False
 
     def get_redirect_url(self):
-        return reverse('coins:miningPoolDetail',
+        return reverse('miningpool:miningPoolDetail',
                        kwargs={'slug': self.slug})
 
 class miningPoolListView(LoginRequiredMixin, ListView):
@@ -40,7 +40,7 @@ class miningPoolTypeRedirectView(LoginRequiredMixin, RedirectView):
     permanent = False
 
     def get_redirect_url(self):
-        return reverse('coins:miningPoolTypeDetail',
+        return reverse('miningpooltypes:miningPoolTypeDetail',
                        kwargs={'slug': self.slug})
 
 class miningPoolTypeListView(LoginRequiredMixin, ListView):

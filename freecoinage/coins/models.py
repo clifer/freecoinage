@@ -183,6 +183,22 @@ class InfoService(models.Model):
     def get_absolute_url(self):
         return reverse('coins:infoserviceDetail', kwargs={'slug': self.slug})
 
+class MinerType(models.Model):
+    name = models.CharField(max_length=30,blank=False)
+    description = models.CharField(max_length=1024,blank=True,null=True)
+    slug = AutoSlugField(populate_from='name',always_update=True)
+    slug_field = 'name'
+    slug_url_kwarg = 'name'
+
+    def __str__(self):              # __unicode__ on Python 2
+        return self.name
+
+    def get_absolute_url(self):
+        return reverse('minertypes:minerTypeDetail', kwargs={'slug': self.slug})
+
+    def get_fields(self):
+        return [(field.name, field.value_to_string(self)) for field in MinerType._meta.fields]
+
 class Miner(models.Model):
     name = models.CharField(max_length=30,blank=False)
     host = models.CharField(max_length=30,blank=False)
@@ -202,7 +218,7 @@ class Miner(models.Model):
         return self.name
 
     def get_absolute_url(self):
-        return reverse('coins:minerDetail', kwargs={'slug': self.slug})
+        return reverse('miners:minerDetail', kwargs={'slug': self.slug})
 
     def get_fields(self):
         return [(field.name, field.value_to_string(self)) for field in Miner._meta.fields]
@@ -218,10 +234,10 @@ class MiningPoolType(models.Model):
         return self.name
 
     def get_absolute_url(self):
-        return reverse('coins:miningPoolDetail', kwargs={'slug': self.slug})
+        return reverse('miningpooltypes:miningPoolTypeDetail', kwargs={'slug': self.slug})
 
     def get_fields(self):
-        return [(field.name, field.value_to_string(self)) for field in MiningPool._meta.fields]
+        return [(field.name, field.value_to_string(self)) for field in MiningPoolType._meta.fields]
 
 class MiningPool(models.Model):
     name = models.CharField(max_length=30,blank=False)
@@ -257,7 +273,7 @@ class MiningPool(models.Model):
         return apiresults
 
     def get_absolute_url(self):
-        return reverse('coins:miningPoolDetail', kwargs={'slug': self.slug})
+        return reverse('miningpools:miningPoolDetail', kwargs={'slug': self.slug})
 
     def get_fields(self):
         return [(field.name, field.value_to_string(self)) for field in MiningPool._meta.fields]

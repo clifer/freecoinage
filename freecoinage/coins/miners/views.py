@@ -8,8 +8,7 @@ from django.shortcuts import render, render_to_response
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 from freecoinage.users.models import User
-from freecoinage.coins.models import Miner
-
+from freecoinage.coins.models import Miner, MinerType
 
 class minerDetailView(LoginRequiredMixin, DetailView):
     model = Miner
@@ -29,4 +28,25 @@ class minerListView(LoginRequiredMixin, ListView):
     # These next two lines tell the view to index lookups by slug
     slug_field = 'slug'
     slug_url_kwarg = 'slug'
+
+
+class minerTypeDetailView(LoginRequiredMixin, DetailView):
+    model = MinerType
+    # These next two lines tell the view to index lookups by slug
+    slug_field = 'slug'
+    slug_url_kwarg = 'slug'
+
+class minerTypeRedirectView(LoginRequiredMixin, RedirectView):
+    permanent = False
+
+    def get_redirect_url(self):
+        return reverse('minertypes:minerTypeDetail',
+                       kwargs={'slug': self.slug})
+
+class minerTypeListView(LoginRequiredMixin, ListView):
+    model = MinerType
+    # These next two lines tell the view to index lookups by slug
+    slug_field = 'slug'
+    slug_url_kwarg = 'slug'
+
 

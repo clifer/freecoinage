@@ -16,11 +16,6 @@ urlpatterns = [
         view=miningPoolDetailView.as_view(),
         name='miningPoolDetail'
     ),
-   url(
-        regex=r'^$',
-        view=miningPoolTypeListView.as_view(),
-        name='miningPoolTypeList'
-    ),
     url(
         regex=r'^miningpooltypes/(?P<slug>[\w|\W]+)$',
         view=miningPoolTypeDetailView.as_view(),
