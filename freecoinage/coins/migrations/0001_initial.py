@@ -137,9 +137,19 @@ class Migration(migrations.Migration):
             ],
         ),
         migrations.CreateModel(
+            name='MinerType',
+            fields=[
+                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('name', models.CharField(max_length=30)),
+                ('description', models.CharField(blank=True, max_length=1024, null=True)),
+                ('slug', autoslug.fields.AutoSlugField(always_update=True, editable=False, populate_from='name')),
+            ],
+        ),
+        migrations.CreateModel(
             name='Miner',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('minertype', models.ForeignKey(default=1, on_delete=django.db.models.deletion.CASCADE, to='coins.MinerType')),
                 ('name', models.CharField(max_length=30)),
                 ('host', models.CharField(max_length=30)),
                 ('port', models.CharField(max_length=30)),
@@ -151,9 +161,19 @@ class Migration(migrations.Migration):
             ],
         ),
         migrations.CreateModel(
+            name='MiningPoolType',
+            fields=[
+                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('name', models.CharField(max_length=30)),
+                ('description', models.CharField(blank=True, max_length=1024, null=True)),
+                ('slug', autoslug.fields.AutoSlugField(always_update=True, editable=False, populate_from='name')),
+            ],
+        ),
+        migrations.CreateModel(
             name='MiningPool',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('pooltype', models.ForeignKey(default=1, on_delete=django.db.models.deletion.CASCADE, to='coins.MiningPoolType')),
                 ('name', models.CharField(max_length=30)),
                 ('description', models.CharField(blank=True, max_length=1024, null=True)),
                 ('host', models.CharField(blank=True, max_length=30, null=True)),
@@ -161,7 +181,6 @@ class Migration(migrations.Migration):
                 ('port', models.CharField(blank=True, max_length=30, null=True)),
                 ('apiurl', models.CharField(blank=True, max_length=256, null=True)),
                 ('apikey', models.CharField(blank=True, max_length=256, null=True)),
-                ('pooltype', models.CharField(blank=True, max_length=256, null=True)),
                 ('active', models.BooleanField(default=False)),
                 ('slug', autoslug.fields.AutoSlugField(always_update=True, default='x', editable=False, populate_from='name')),
             ],
