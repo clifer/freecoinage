@@ -214,6 +214,9 @@ class MiningPoolType(models.Model):
     slug_field = 'name'
     slug_url_kwarg = 'name'
 
+    def __str__(self):              # __unicode__ on Python 2
+        return self.name
+
     def get_absolute_url(self):
         return reverse('coins:miningPoolDetail', kwargs={'slug': self.slug})
 

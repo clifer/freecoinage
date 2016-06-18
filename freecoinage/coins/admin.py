@@ -2,7 +2,6 @@
 
 from django.contrib import admin
 from .models import  Coin, Currency, Algorithm, Miner, MiningPool, MiningPoolType, Market, Daemon, Exchange
-#from .models import UserCoin, Coin, Currency, Algorithm, Miner, MiningPool, MiningPoolType,  Market, Daemon, Exchange
 from freecoinage.users.models import UserCoin
 
 
