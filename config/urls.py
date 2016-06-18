@@ -27,6 +27,7 @@ urlpatterns = [
     url(r'^currencies/', include('freecoinage.coins.currencys.urls', namespace='currencies')),
     url(r'^miners/', include('freecoinage.coins.miners.urls', namespace='miners')),
     url(r'^miningpools/', include('freecoinage.coins.miningpools.urls', namespace='miningpools')),
+    url(r'^miningpooltypes/', include('freecoinage.coins.miningpools.urls', namespace='miningpooltypes')),
     url(r'^algorithms/', include('freecoinage.coins.algorithms.urls', namespace='algorithms')),
 
 
