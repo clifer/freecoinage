@@ -11,7 +11,7 @@ from freecoinage.users.models import User
 from .models import Coin, Currency, Algorithm, Daemon, Market, Exchange, Miner, MiningPool
 
 
-class coinDetailView(LoginRequiredMixin, DetailView):
+class coinDetailView(DetailView):
     model = Coin
     # These next two lines tell the view to index lookups by slug
     slug_field = 'slug'
@@ -24,7 +24,7 @@ class coinRedirectView(LoginRequiredMixin, RedirectView):
         return reverse('coins:coinDetail',
                        kwargs={'slug': self.slug})
 
-class coinListView(LoginRequiredMixin, ListView):
+class coinListView(ListView):
     model = Coin
     # These next two lines tell the view to index lookups by slug
     slug_field = 'slug'
