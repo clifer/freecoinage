@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from django.contrib import admin
-from .models import  Coin, Currency, Algorithm, Miner, MiningPool, MiningPoolType, Market, Daemon, Exchange
+from .models import  Coin, Currency, Algorithm, Miner, MinerType, MiningPool, MiningPoolType, Market, Daemon, Exchange
 from freecoinage.users.models import UserCoin
 
 
@@ -10,6 +10,7 @@ admin.site.register(UserCoin)
 admin.site.register(Currency)
 admin.site.register(Algorithm)
 admin.site.register(Miner)
+admin.site.register(MinerType)
 admin.site.register(MiningPoolType)
 admin.site.register(MiningPool)
 admin.site.register(Market)

@@ -19,17 +19,19 @@ urlpatterns = [
     url(r'^users/', include('freecoinage.users.urls', namespace='users')),
     url(r'^accounts/', include('allauth.urls')),
 
-    # Your stuff: custom urls includes go here
+    # Freecoinage
     url(r'^api/', include('freecoinage.api.urls')),
     url(r'^coins/', include('freecoinage.coins.urls', namespace='coins')),
     url(r'^exchanges/', include('freecoinage.coins.exchanges.urls', namespace='exchanges')),
     url(r'^markets/', include('freecoinage.coins.markets.urls', namespace='markets')),
     url(r'^currencies/', include('freecoinage.coins.currencys.urls', namespace='currencies')),
     url(r'^miners/', include('freecoinage.coins.miners.urls', namespace='miners')),
+    url(r'^minertypes/', include('freecoinage.coins.miningpools.urls', namespace='minertypes')),
     url(r'^miningpools/', include('freecoinage.coins.miningpools.urls', namespace='miningpools')),
     url(r'^miningpooltypes/', include('freecoinage.coins.miningpools.urls', namespace='miningpooltypes')),
     url(r'^algorithms/', include('freecoinage.coins.algorithms.urls', namespace='algorithms')),
 
+    # Your stuff: custom urls includes go here
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

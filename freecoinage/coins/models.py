@@ -201,6 +201,7 @@ class MinerType(models.Model):
 
 class Miner(models.Model):
     name = models.CharField(max_length=30,blank=False)
+    pooltype = models.ForeignKey(MinerType)
     host = models.CharField(max_length=30,blank=False)
     port = models.CharField(max_length=30,blank=False)
     apiurl = models.CharField(max_length=30,blank=False)
