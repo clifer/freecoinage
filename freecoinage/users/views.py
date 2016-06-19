@@ -59,7 +59,7 @@ class UserCoinRedirectView(LoginRequiredMixin, RedirectView):
 
     def get_redirect_url(self):
         return reverse('users:myCoinDetail',
-                       kwargs={'slug': self.request.coin.slug})
+                       kwargs={'slug': self.request.coin})
 
 
 class UserCoinUpdateView(LoginRequiredMixin, UpdateView):
@@ -72,11 +72,11 @@ class UserCoinUpdateView(LoginRequiredMixin, UpdateView):
     # send the user back to their own page after a successful update
     def get_success_url(self):
         return reverse('users:myCoinDetail',
-                       kwargs={'slug': self.request.coin.slug})
+                       kwargs={'slug': self.request.coin})
 
     def get_object(self):
         # Only get the User record for the user making the request
-        return UserCoin.objects.get(slug=self.request.coin.slug)
+        return UserCoin.objects.get(slug=self.request.coin)
 
 
 class UserCoinListView(LoginRequiredMixin, ListView):
