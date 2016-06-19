@@ -25,7 +25,7 @@ def load_userminers(apps, schema_editor):
 def load_userminingpools(apps, schema_editor):
     UserMiningPool = apps.get_model("users", "UserMiningPool")
     User = apps.get_model('users', 'User').objects.get(pk=1)
-    PoolType = apps.get_model('coins', 'MinerPoolType').objects.get(pk=1)
+    PoolType = apps.get_model('coins', 'MiningPoolType').objects.get(pk=1)
     thesminingpool = MiningPool(id=1,name='Test Pool', user=User,description='description',host='localhost',address=None,port=1234,apiurl='/',apikey='/',pooltype=PoolType,active=True,slug='test-pool')
     thesminingpool.save()
 
