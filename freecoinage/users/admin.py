@@ -24,9 +24,9 @@ class MyUserCreationForm(UserCreationForm):
         model = User
 
 
-admin.register(UserMiner)
-admin.register(UserMiningPool)
-admin.register(UserCoin)
+admin.site.register(UserMiner)
+admin.site.register(UserMiningPool)
+admin.site.register(UserCoin)
 
 @admin.register(User)
 class UserAdmin(AuthUserAdmin):
