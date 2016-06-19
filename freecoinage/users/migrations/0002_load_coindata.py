@@ -11,7 +11,8 @@ def load_users(apps, schema_editor):
 def load_usercoins(apps, schema_editor):
     UserCoin = apps.get_model("users", "UserCoin")
     User = apps.get_model('users', 'User').objects.get(pk=1)
-    coin = UserMiner(id=1,user=User)
+    Coin = apps.get_model('coins', 'Coin').objects.get(pk=1)
+    coin = UserMiner(id=1,user=User,coin=Coin,active=True)
     coin.save()
 
 def load_userminers(apps, schema_editor):
