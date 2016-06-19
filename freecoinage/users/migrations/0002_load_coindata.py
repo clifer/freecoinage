@@ -5,7 +5,7 @@ from django.db import migrations
 
 def load_users(apps, schema_editor):
     User = apps.get_model("users", "User")
-    user = User(id=1,password='pbkdf2_sha256$24000$mslWsXmPzCy1$GzTLr/BJFm/sTRNCdgJJZ9RM6Z6UJkV75JVmKqPExy0=',last_login=Null,is_superuser=False,username='demo', first_name='demo',last_name='user',email='none@none.com',is_staff=False,is_active=True,date_joined=now(),name='demo')
+    user = User(id=1,password='pbkdf2_sha256$24000$mslWsXmPzCy1$GzTLr/BJFm/sTRNCdgJJZ9RM6Z6UJkV75JVmKqPExy0=',last_login=None,is_superuser=False,username='demo', first_name='demo',last_name='user',email='none@none.com',is_staff=False,is_active=True,date_joined=now(),name='demo')
     user.save()
 
 def load_usercoins(apps, schema_editor):
