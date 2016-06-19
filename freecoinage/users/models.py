@@ -37,7 +37,7 @@ class UserCoin(models.Model):
     user = models.ForeignKey('User', related_name='UserUserCoins')
     coin = models.ForeignKey(Coin, related_name='UserCoins')
     active = models.BooleanField(default=False)
-    slug = AutoSlugField(populate_from='self.coin.name',always_update=True)
+    slug = AutoSlugField(populate_from='coin',always_update=True)
     slug_field = 'coin'
     slug_url_kwarg = 'coin'
 
