@@ -10,19 +10,19 @@ def load_users(apps, schema_editor):
 
 def load_usercoins(apps, schema_editor):
     UserCoin = apps.get_model("users", "UserMiner")
-    User = apps.get_model('users', 'Users').objects.get(pk=1)
+    User = apps.get_model('users', 'User').objects.get(pk=1)
     coin = UserMiner(id=1,user=User)
     coin.save()
 
 def load_userminers(apps, schema_editor):
     UserMiner = apps.get_model("users", "UserMiner")
-    User = apps.get_model('users', 'Users').objects.get(pk=1)
+    User = apps.get_model('users', 'User').objects.get(pk=1)
     thesminer = UserMiner(id=1,name='Test Miner', user=User,minertype=MinerType,host='localhost',port=8000,apiurl='/',apiuser='user',apipass='password',active=True,slug='test-miner')
     thesminer.save()
 
 def load_userminingpools(apps, schema_editor):
     UserMiningPool = apps.get_model("users", "UserMiningPool")
-    User = apps.get_model('users', 'Users').objects.get(pk=1)
+    User = apps.get_model('users', 'User').objects.get(pk=1)
     thesminingpool = MiningPool(id=1,name='Test Pool', user=User,description='description',host='localhost',address=None,port=1234,apiurl='/',apikey='/',pooltype=PoolType,active=True,slug='test-pool')
     thesminingpool.save()
 
