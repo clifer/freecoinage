@@ -62,7 +62,7 @@ class UserCoin(models.Model):
         return self.coin.name
 
     def get_absolute_url(self):
-        return reverse('users:myCoinDetail', kwargs={'slug': self.slug)
+        return reverse('users:myCoinDetail', kwargs={'slug': self.slug})
 
     def get_fields(self):
         return [(field.name, field.value_to_string(self)) for field in UserCoin._meta.fields]
