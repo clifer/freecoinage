@@ -154,10 +154,6 @@ class Migration(migrations.Migration):
                 ('slug', autoslug.fields.AutoSlugField(always_update=True, editable=False, populate_from='name')),
             ],
         ),
-        migrations.AlterUniqueTogether(
-            name='miner',
-            unique_together=set([('host', 'port')]),
-        ),
         migrations.AddField(
             model_name='market',
             name='slug',
