@@ -6,7 +6,7 @@ from django.views.generic import DetailView, ListView, RedirectView, UpdateView
 
 from django.contrib.auth.mixins import LoginRequiredMixin
 
-from .models import User, UserCoin, UserMiner, UserMiningPools
+from .models import User, UserCoin, UserMiner, UserMiningPool
 
 
 class UserDetailView(LoginRequiredMixin, DetailView):
