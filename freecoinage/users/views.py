@@ -72,11 +72,11 @@ class UserCoinUpdateView(LoginRequiredMixin, UpdateView):
     # send the user back to their own page after a successful update
     def get_success_url(self):
         return reverse('users:myCoinDetail',
-                       kwargs={'slug': self.request.user.slug})
+                       kwargs={'slug': self.request.coin.slug})
 
     def get_object(self):
         # Only get the User record for the user making the request
-        return User.objects.get(username=self.request.coin.username)
+        return UserCoin.objects.get(slug=self.request.coin.slug)
 
 
 class UserCoinListView(LoginRequiredMixin, ListView):
