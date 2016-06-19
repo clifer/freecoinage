@@ -46,3 +46,41 @@ class UserListView(LoginRequiredMixin, ListView):
     # These next two lines tell the view to index lookups by username
     slug_field = 'username'
     slug_url_kwarg = 'username'
+
+
+class UserCoinDetailView(LoginRequiredMixin, DetailView):
+    model = UserCoin
+    slug_field = 'slug'
+    slug_url_kwarg = 'slug'
+
+
+class UserCoinRedirectView(LoginRequiredMixin, RedirectView):
+    permanent = False
+
+    def get_redirect_url(self):
+        return reverse('users:coinDetail',
+                       kwargs={'slug': self.request.coin.slug})
+
+
+class UserCoinUpdateView(LoginRequiredMixin, UpdateView):
+
+    fields = ['coin', ]
+
+    # we already imported User in the view code above, remember?
+    model = UserCoin
+
+    # send the user back to their own page after a successful update
+    def get_success_url(self):
+        return reverse('users:coinDetail',
+                       kwargs={'slug': self.request.user.slug})
+
+    def get_object(self):
+        # Only get the User record for the user making the request
+        return User.objects.get(username=self.request.coin.username)
+
+
+class UserCoinListView(LoginRequiredMixin, ListView):
+    model = UserCoin
+    # These next two lines tell the view to index lookups by username
+    slug_field = 'slug'
+    slug_url_kwarg = 'slug'

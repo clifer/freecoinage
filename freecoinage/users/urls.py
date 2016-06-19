@@ -27,6 +27,19 @@ urlpatterns = [
         name='detail'
     ),
 
+    # URL pattern for the UserListView
+    url(
+        regex=r'^mycoins/$',
+        view=views.UserCoinListView.as_view(),
+        name='myCoinList'
+    ),
+
+    url(
+        regex=r'^(?P<username>[\w.@+-]+)\/mycoins/(?P<coin>[\w.@+-]+)$',
+        view=views.UserCoinDetailView.as_view(),
+        name='myCoinDetail'
+    ),
+
     # URL pattern for the UserUpdateView
     url(
         regex=r'^~update/$',
