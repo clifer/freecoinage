@@ -50,8 +50,8 @@ class UserListView(LoginRequiredMixin, ListView):
 
 class UserCoinDetailView(LoginRequiredMixin, DetailView):
     model = UserCoin
-    slug_field = 'slug'
-    slug_url_kwarg = 'slug'
+    slug_field = 'id'
+    slug_url_kwarg = 'id'
 
 
 class UserCoinRedirectView(LoginRequiredMixin, RedirectView):
@@ -64,7 +64,7 @@ class UserCoinRedirectView(LoginRequiredMixin, RedirectView):
 
 class UserCoinUpdateView(LoginRequiredMixin, UpdateView):
 
-    fields = ['coin', 'slug']
+    fields = ['coin',]
 
     # we already imported User in the view code above, remember?
     model = UserCoin
@@ -82,5 +82,5 @@ class UserCoinUpdateView(LoginRequiredMixin, UpdateView):
 class UserCoinListView(LoginRequiredMixin, ListView):
     model = UserCoin
     # These next two lines tell the view to index lookups by username
-    slug_field = 'slug'
-    slug_url_kwarg = 'slug'
+    slug_field = 'id'
+    slug_url_kwarg = 'id'
