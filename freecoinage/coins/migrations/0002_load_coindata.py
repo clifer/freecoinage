@@ -38,22 +38,10 @@ def load_minertypes(apps, schema_editor):
     thesminertype = MinerType(id=1,name='Minera', description='description',slug='minera')
     thesminertype.save()
 
-def load_miners(apps, schema_editor):
-    Miner = apps.get_model("coins", "Miner")
-    MinerType = apps.get_model('coins', 'MinerType').objects.get(pk=1)
-    thesminer = Miner(id=1,name='Test Miner', minertype=MinerType,host='localhost',port=8000,apiurl='/',apiuser='user',apipass='password',active=True,slug='test-miner')
-    thesminer.save()
-
 def load_miningpooltypes(apps, schema_editor):
     MiningPoolType = apps.get_model("coins", "MiningPoolType")
     thesminingpooltype = MiningPoolType(id=1,name='NOMP', description='description',slug='nomp')
     thesminingpooltype.save()
-
-def load_miningpools(apps, schema_editor):
-    MiningPool = apps.get_model("coins", "MiningPool")
-    PoolType = apps.get_model('coins', 'MiningPoolType').objects.get(pk=1)
-    thesminingpool = MiningPool(id=1,name='Test Pool', description='description',host='localhost',address=None,port=1234,apiurl='/',apikey='/',pooltype=PoolType,active=True,slug='test-pool')
-    thesminingpool.save()
 
 class Migration(migrations.Migration):
 
@@ -69,6 +57,4 @@ class Migration(migrations.Migration):
         migrations.RunPython(load_markets),
         migrations.RunPython(load_minertypes),
         migrations.RunPython(load_miningpooltypes),
-        migrations.RunPython(load_miners),
-        migrations.RunPython(load_miningpools),
     ]

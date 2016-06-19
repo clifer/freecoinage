@@ -74,4 +74,38 @@ class Migration(migrations.Migration):
             name='usercoin',
             unique_together=set([('user', 'coin')]),
         ),
+        migrations.CreateModel(
+            name='Miner',
+            fields=[
+                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('user', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='UserUserCoins', to=settings.AUTH_USER_MODEL)),
+                ('minertype', models.ForeignKey(default=1, on_delete=django.db.models.deletion.CASCADE, to='coins.MinerType')),
+                ('name', models.CharField(max_length=30)),
+                ('host', models.CharField(max_length=30)),
+                ('port', models.CharField(max_length=30)),
+                ('apiurl', models.CharField(max_length=30)),
+                ('apiuser', models.CharField(max_length=30)),
+                ('apipass', models.CharField(max_length=30)),
+                ('active', models.BooleanField(default=False)),
+                ('slug', autoslug.fields.AutoSlugField(always_update=True, default='x', editable=False, populate_from='name')),
+            ],
+        ),
+        migrations.CreateModel(
+            name='MiningPool',
+            fields=[
+                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('user', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='UserUserCoins', to=settings.AUTH_USER_MODEL)),
+                ('pooltype', models.ForeignKey(default=1, on_delete=django.db.models.deletion.CASCADE, to='coins.MiningPoolType')),
+                ('name', models.CharField(max_length=30)),
+                ('description', models.CharField(blank=True, max_length=1024, null=True)),
+                ('host', models.CharField(blank=True, max_length=30, null=True)),
+                ('address', models.CharField(blank=True, max_length=256, null=True)),
+                ('port', models.CharField(blank=True, max_length=30, null=True)),
+                ('apiurl', models.CharField(blank=True, max_length=256, null=True)),
+                ('apikey', models.CharField(blank=True, max_length=256, null=True)),
+                ('active', models.BooleanField(default=False)),
+                ('slug', autoslug.fields.AutoSlugField(always_update=True, default='x', editable=False, populate_from='name')),
+            ],
+        ),
+
     ]
