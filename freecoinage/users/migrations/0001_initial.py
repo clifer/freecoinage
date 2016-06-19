@@ -75,7 +75,7 @@ class Migration(migrations.Migration):
             unique_together=set([('user', 'coin')]),
         ),
         migrations.CreateModel(
-            name='Miner',
+            name='UserMiner',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('user', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='UserUserCoins', to=settings.AUTH_USER_MODEL)),
@@ -91,7 +91,7 @@ class Migration(migrations.Migration):
             ],
         ),
         migrations.CreateModel(
-            name='MiningPool',
+            name='UserMiningPool',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('user', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='UserUserCoins', to=settings.AUTH_USER_MODEL)),
