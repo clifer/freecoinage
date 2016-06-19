@@ -29,13 +29,13 @@ urlpatterns = [
 
     # URL pattern for the UserListView
     url(
-        regex=r'^mycoins/$',
+        regex=r'^(?P<username>[\w.@+-]+)\/mycoins/$',
         view=views.UserCoinListView.as_view(),
         name='myCoinList'
     ),
 
     url(
-        regex=r'^(?P<username>[\w.@+-]+)\/mycoins/(?P<coin>[\w.@+-]+)$',
+        regex=r'^(?P<username>[\w.@+-]+)\/mycoins\/(?P<coin>[\w.@+-]+)$',
         view=views.UserCoinDetailView.as_view(),
         name='myCoinDetail'
     ),
