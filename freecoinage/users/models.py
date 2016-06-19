@@ -47,9 +47,9 @@ class UserCoin(models.Model):
     user = models.ForeignKey('User', related_name='UserUserCoins')
     coin = models.ForeignKey(Coin, related_name='UserCoins')
     active = models.BooleanField(default=False)
-    slug = AutoSlugField(populate_from='coin',always_update=True)
-    slug_field = 'coin'
-    slug_url_kwarg = 'coin'
+    slug = AutoSlugField(populate_from='coin.slug',always_update=True)
+    slug_field = 'coin.slug'
+    slug_url_kwarg = 'coin.slug'
 
     @property
     def name(self):
@@ -62,7 +62,7 @@ class UserCoin(models.Model):
         return self.coin.name
 
     def get_absolute_url(self):
-        return reverse('users:coinDetail', kwargs={'username': self.user.name, 'coin': self.coin.name})
+        return reverse('users:myCoinDetail', kwargs={'username': self.coin.name, 'slug': self.coin.slug})
 
     def get_fields(self):
         return [(field.name, field.value_to_string(self)) for field in UserCoin._meta.fields]
