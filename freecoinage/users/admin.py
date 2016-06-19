@@ -24,8 +24,8 @@ class MyUserCreationForm(UserCreationForm):
         model = User
 
 
+admin.register(UserMiner)
 
-@admin.register(UserMiner)
 @admin.register(User)
 class UserAdmin(AuthUserAdmin):
     form = MyUserChangeForm
