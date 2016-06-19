@@ -65,7 +65,7 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('active', models.BooleanField(default=False)),
-                ('slug', autoslug.fields.AutoSlugField(always_update=True, editable=False, populate_from='name')),
+                ('slug', autoslug.fields.AutoSlugField(always_update=True, editable=False, populate_from='coin.name')),
                 ('coin', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='UserCoins', to='coins.Coin')),
                 ('user', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='UserUserCoins', to=settings.AUTH_USER_MODEL)),
             ],
@@ -78,7 +78,7 @@ class Migration(migrations.Migration):
             name='UserMiner',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('user', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='UserUserCoins', to=settings.AUTH_USER_MODEL)),
+                ('user', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='UserUserMiner', to=settings.AUTH_USER_MODEL)),
                 ('minertype', models.ForeignKey(default=1, on_delete=django.db.models.deletion.CASCADE, to='coins.MinerType')),
                 ('name', models.CharField(max_length=30)),
                 ('host', models.CharField(max_length=30)),
@@ -94,7 +94,7 @@ class Migration(migrations.Migration):
             name='UserMiningPool',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('user', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='UserUserCoins', to=settings.AUTH_USER_MODEL)),
+                ('user', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='UserUserMiningPool', to=settings.AUTH_USER_MODEL)),
                 ('pooltype', models.ForeignKey(default=1, on_delete=django.db.models.deletion.CASCADE, to='coins.MiningPoolType')),
                 ('name', models.CharField(max_length=30)),
                 ('description', models.CharField(blank=True, max_length=1024, null=True)),
