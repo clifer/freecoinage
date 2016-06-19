@@ -25,6 +25,8 @@ class MyUserCreationForm(UserCreationForm):
 
 
 admin.register(UserMiner)
+admin.register(UserMiningPool)
+admin.register(UserCoin)
 
 @admin.register(User)
 class UserAdmin(AuthUserAdmin):
