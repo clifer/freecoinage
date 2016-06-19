@@ -22,6 +22,16 @@ class User(AbstractUser):
         coins = UserCoin.objects.filter(user = self.id)
         return coins
 
+    @property
+    def miners(self):
+        miners = UserMiner.objects.filter(user = self.id)
+        return miners
+
+    @property
+    def miningpools(self):
+        miningpools = UserMiningPool.objects.filter(user = self.id)
+        return miningpools
+
     def __str__(self):
         return self.username
 
