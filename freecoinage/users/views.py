@@ -58,7 +58,7 @@ class UserCoinRedirectView(LoginRequiredMixin, RedirectView):
     permanent = False
 
     def get_redirect_url(self):
-        return reverse('users:coinDetail',
+        return reverse('users:myCoinDetail',
                        kwargs={'slug': self.request.coin.slug})
 
 
@@ -71,7 +71,7 @@ class UserCoinUpdateView(LoginRequiredMixin, UpdateView):
 
     # send the user back to their own page after a successful update
     def get_success_url(self):
-        return reverse('users:coinDetail',
+        return reverse('users:myCoinDetail',
                        kwargs={'slug': self.request.user.slug})
 
     def get_object(self):
