@@ -8,10 +8,10 @@ def load_users(apps, schema_editor):
     user = User(id=2,password='pbkdf2_sha256$24000$HbQxNf5RVlH7$wouOZFjzv/0AenphG2C7ort6ufzo5VStbbe1Va0w3XQ=',last_login='1970-01-01',is_superuser=False,username='demo', first_name='demo',last_name='user',email='none@none.com',is_staff=False,is_active=True,date_joined='1970-01-01',name='demo')
     user.save()
 
-    EmailConfirm = apps.get_model('account', 'emailaddress').objects.get(email=user.email)
-    emailconfirm.verified=True
-    emailconfirm.primary=True
-    emailconfirm.save()
+#    EmailConfirm = apps.get_model('account', 'emailaddress').objects.get(email=user.email)
+#    emailconfirm.verified=True
+#    emailconfirm.primary=True
+#    emailconfirm.save()
 
 def load_usercoins(apps, schema_editor):
     UserCoin = apps.get_model("users", "UserCoin")
