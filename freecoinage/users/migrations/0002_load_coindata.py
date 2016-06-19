@@ -9,7 +9,7 @@ def load_users(apps, schema_editor):
     user.save()
 
 def load_usercoins(apps, schema_editor):
-    UserCoin = apps.get_model("users", "UserMiner")
+    UserCoin = apps.get_model("users", "UserCoin")
     User = apps.get_model('users', 'User').objects.get(pk=1)
     coin = UserMiner(id=1,user=User)
     coin.save()
