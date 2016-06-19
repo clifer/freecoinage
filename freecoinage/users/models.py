@@ -48,8 +48,8 @@ class UserCoin(models.Model):
     coin = models.ForeignKey(Coin, related_name='UserCoins')
     active = models.BooleanField(default=False)
     slug = AutoSlugField(populate_from='self.id',always_update=True)
-    slug_field = 'id'
-    slug_url_kwarg = 'id'
+    slug_field = 'self.id'
+    slug_url_kwarg = 'self.id'
 
     @property
     def name(self):

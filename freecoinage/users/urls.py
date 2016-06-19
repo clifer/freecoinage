@@ -35,7 +35,7 @@ urlpatterns = [
     ),
 
     url(
-        regex=r'^(?P<username>[\w.@+-]+)\/mycoins\/(?P<coin>[\w.@+-]+)$',
+        regex=r'^(?P<username>[\w.@+-]+)\/mycoins\/(?P<slug>[\w.@+-]+)$',
         view=views.UserCoinDetailView.as_view(),
         name='myCoinDetail'
     ),
