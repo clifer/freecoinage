@@ -10,7 +10,7 @@
 
     <div class="list-group">
         {% for usercoin in usercoin_list %}
-          <a href="{% url 'users:myCoinDetail' usercoin.coin.name %}" class="list-group-item">
+          <a href="{% url 'users:myCoinDetail' usercoin.id %}" class="list-group-item">
             <h4 class="list-group-item-heading">{{ usercoin.coin.name }}</h4>
           </a>
         {% endfor %}

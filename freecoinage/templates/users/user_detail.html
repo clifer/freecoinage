@@ -40,7 +40,7 @@
     <div class="list-group">
         {% for coin in user.coins %}
         <div class="list-group-item">
-             <a href="{% url 'users:myCoinDetail' coin.slug %}" >
+             <a href="{% url 'users:myCoinDetail' coin.id %}" >
             {{ coin }}
              </a>
         </div>
