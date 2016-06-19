@@ -25,6 +25,7 @@ class MyUserCreationForm(UserCreationForm):
 
 
 
+@admin.register(UserMiner)
 @admin.register(User)
 class UserAdmin(AuthUserAdmin):
     form = MyUserChangeForm
