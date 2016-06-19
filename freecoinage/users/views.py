@@ -50,8 +50,8 @@ class UserListView(LoginRequiredMixin, ListView):
 
 class UserCoinDetailView(LoginRequiredMixin, DetailView):
     model = UserCoin
-    slug_field = 'id'
-    slug_url_kwarg = 'id'
+    slug_field = 'slug'
+    slug_url_kwarg = 'slug'
 
 
 class UserCoinRedirectView(LoginRequiredMixin, RedirectView):
@@ -64,7 +64,7 @@ class UserCoinRedirectView(LoginRequiredMixin, RedirectView):
 
 class UserCoinUpdateView(LoginRequiredMixin, UpdateView):
 
-    fields = ['coin', ]
+    fields = ['coin', 'slug']
 
     # we already imported User in the view code above, remember?
     model = UserCoin
@@ -76,11 +76,11 @@ class UserCoinUpdateView(LoginRequiredMixin, UpdateView):
 
     def get_object(self):
         # Only get the User record for the user making the request
-        return UserCoin.objects.get(id=self.request.coin)
+        return UserCoin.objects.get(slug=self.request.coin)
 
 
 class UserCoinListView(LoginRequiredMixin, ListView):
     model = UserCoin
     # These next two lines tell the view to index lookups by username
-    slug_field = 'id'
-    slug_url_kwarg = 'id'
+    slug_field = 'slug'
+    slug_url_kwarg = 'slug'
