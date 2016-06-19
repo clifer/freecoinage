@@ -65,7 +65,7 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('active', models.BooleanField(default=False)),
-                ('slug', autoslug.fields.AutoSlugField(always_update=True, editable=False, populate_from='coin.name')),
+                ('slug', autoslug.fields.AutoSlugField(always_update=True, editable=False, populate_from='self.coin.name')),
                 ('coin', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='UserCoins', to='coins.Coin')),
                 ('user', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='UserUserCoins', to=settings.AUTH_USER_MODEL)),
             ],
