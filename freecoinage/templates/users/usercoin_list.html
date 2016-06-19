@@ -11,6 +11,7 @@
     <div class="list-group">
         {% for usercoin in usercoin_list %}
 
+           <a href="{% url 'users:myCoinDetail' usercoin.slug %}" class="list-group-item">
             <h4 class="list-group-item-heading">{{ usercoin.name }} {{ usercoin.slug }}</h4>
            </a>
         {% endfor %}
