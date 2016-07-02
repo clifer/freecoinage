@@ -77,7 +77,7 @@ class Coin(models.Model):
         exchanges = []
         for market in self.markets:
             exchanges.append(market.exchangeid)
-        return exchanges
+        return set(exchanges)
 
 
     @property
@@ -305,7 +305,7 @@ class Market(models.Model):
         exchanges = []
         for market in markets:
             exchanges.append(market.exchangeid)
-        return exchanges
+        return set(exchanges)
 
     def marketlogs(self):              # __unicode__ on Python 2
 #       marketlogs = MarketLog.objects.filter(marketid=self.id).order_by('created')
